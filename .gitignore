@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[oc]
+*.pyc
+.python-version
+
+# Build/tooling
+build/
+dist/
+wheels/
+*.egg-info
+uv.lock
+pyproject.toml
+
+# Environment
+.venv/
+.env
+*.env.local
+
+# Temporary files
+temp/
+logs/
+dump.txt
+figures/
+pdfs/
+vector_store_db/
+chroma_db/
+
+# System
+*.DS_Store
+*.swp
