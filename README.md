@@ -1,6 +1,5 @@
 # OllaRAG: Multimodal PDF Question Answering System
 
-![Demo Screenshot](demo.gif) <!-- Add screenshot later -->
 
 An end-to-end RAG pipeline that understands both text and images in PDFs using Ollama LLMs and FAISS vector search.
 
@@ -11,19 +10,21 @@ An end-to-end RAG pipeline that understands both text and images in PDFs using O
 - **Efficient Retrieval**: FAISS vector store for low-latency search
 - **Streamlit UI**: Intuitive interface for document Q&A
 - **Self-Healing**: Automatic cleanup of temporary resources
+- **Persistent Chat History**: Stores Q&A interactions in PostgreSQL
 
-## Tech Stack
+##  Tech Stack
 
-| Component               | Technology                          |
-|-------------------------|-------------------------------------|
-| LLM Runtime             | Ollama (llava:7b)                  |
-| Embeddings              | all-minilm                         |
-| Vector Store            | FAISS                              |
-| PDF Processing          | unstructured.io                    |
-| Frontend                | Streamlit                          |
-| Deployment              | Docker (optional)                  |
+| Component          | Technology               |
+|--------------------|--------------------------|
+| LLM Runtime        | Ollama (`llava:7b`)      |
+| Embeddings         | `all-minilm`             |
+| Vector Store       | FAISS                    |
+| PDF Processing     | `unstructured.io`        |
+| Frontend           | Streamlit                |
+| Persistence        | PostgreSQL (chat history)|
+| Deployment         | Docker (optional)        |
 
-## Installation
+## ⚙️ Installation
 
 ### Prerequisites
 
@@ -31,3 +32,11 @@ An end-to-end RAG pipeline that understands both text and images in PDFs using O
 ```bash
 ollama pull llava:7b
 ollama pull all-minilm
+
+2. Install PostgreSQL and create database:
+```bash
+sudo apt install postgresql postgresql-contrib
+sudo -u postgres psql -c "CREATE DATABASE ollarag;"
+sudo service postgresql start
+sudo -i -u postgres
+
