@@ -3,3 +3,5 @@ langchain
 langchain_ollama
 unstructured[pdf]
 pillow
+langchain_community
+psycopg2-binary

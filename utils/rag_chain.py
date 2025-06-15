@@ -21,17 +21,6 @@ def setup_rag_chain():
     except Exception as e:
         raise Exception(f"Failed to initialize RAG chain: {str(e)}")
 
-# def generate_answer(rag_chain, vector_store, question, k=2):
-#     """Generate answer using RAG pipeline"""
-#     try:
-#         docs = vector_store.similarity_search(question, k=k)
-#         context = "\n\n".join([d.page_content for d in docs])
-#         return rag_chain.invoke({
-#             "question": question,
-#             "context": context[:3000]  # Context window limit
-#         })
-#     except Exception as e:
-#         raise Exception(f"Answer generation failed: {str(e)}")
 
 def generate_answer(rag_chain, source, question, k=2):
     """Handle both vector_store and retriever inputs"""

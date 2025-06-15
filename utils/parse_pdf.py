@@ -1,8 +1,7 @@
 
-
-
 import os
 import logging
+import streamlit as st
 from typing import Union
 from io import BytesIO
 from unstructured.partition.pdf import partition_pdf
@@ -59,6 +58,9 @@ def extract_content_from_pdf(file_path: str, figures_dir: str = "temp/figures") 
     
     return "\n\n".join(text_content)
 
+
+@st.cache_data
+
 def process_pdf(file_path: str):
     """Orchestrate PDF processing pipeline"""
     try:
@@ -75,3 +77,11 @@ def process_pdf(file_path: str):
     except Exception as e:
         logger.error(f"PDF processing failed: {str(e)}")
         raise
+
+
+    # git init 
+    # git add .
+    # git commit -m "Initial commit: Multimodal PDF Assistant"
+    # git branch -M main
+    # git remote add origin https://github.com/Chandra1295/multi-modal-rag.git
+    # git push -u origin main 
